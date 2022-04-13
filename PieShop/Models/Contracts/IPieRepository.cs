@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using PieShop.Models;
+using System.Collections.Generic;
 
-namespace PieShop.Models
+namespace PieShop.Models.Contracts
 {
     public interface IPieRepository
     {

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PieShop.Models.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace PieShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddScoped<IPieRepository, PieRepository>();
             services.AddControllersWithViews();
         }
 
@@ -47,7 +49,7 @@ namespace PieShop
 
             app.UseAuthorization();
              
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints   =>
             {
                 //endpoints.MapGet("/", async context =>
                 //{   //Displays the text in web browser
