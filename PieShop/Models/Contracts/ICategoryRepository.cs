@@ -4,6 +4,6 @@ namespace PieShop.Models.Contracts
 {
     public interface ICategoryRepository
     {
-        IEnumerable<CategoryViewModel> Categories { get; }
+        IEnumerable<Category> AllCategories { get; }
     }
 }
