@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PieShop.Models.Contracts;
+using PieShop.Models.ViewModels;
 
 namespace PieShop.Controllers
 {
@@ -16,7 +17,20 @@ namespace PieShop.Controllers
 
         public ViewResult List()
         {
-            return View(_pieRepository.AllPies);
+            // return View(_pieRepository.AllPies);
+            PieViewModel piesVM = new PieViewModel();
+            piesVM.Pies = _pieRepository.AllPies;
+            piesVM.CurrentCategory = "Cheese Cakes";
+            return View(piesVM);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var pie = _pieRepository.GetPieById(id);
+            if (pie == null)
+                return NotFound();
+
+            return View(pie);
         }
 
     }

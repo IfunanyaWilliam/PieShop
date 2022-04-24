@@ -1,4 +1,6 @@
-﻿namespace PieShop.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PieShop.Models
 {
     public class Pie
     {
@@ -7,11 +9,15 @@
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }
         public string AllergyInformation { get; set; }
+
+        //Set precision for the data( 18 numbers, 4 after decimal)
+        [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
-        public string ImgUrl { get; set; }
+        public string ImageUrl { get; set; }
         public string ImageThumbnailUrl { get; set; }
         public bool IsPieOfTheWeek { get; set; }
         public bool InStock { get; set; }
-        public CategoryViewModel Category { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }
