@@ -43,7 +43,7 @@ namespace PieShop
             
             services.AddHttpContextAccessor();
             services.AddSession();
-            
+             
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
