@@ -34,6 +34,7 @@ namespace PieShop
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
+            //Functionality for working with authorization and authentication
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddScoped<IPieRepository, PieRepository>();
@@ -43,7 +44,7 @@ namespace PieShop
             
             services.AddHttpContextAccessor();
             services.AddSession();
-             
+              
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -79,6 +80,7 @@ namespace PieShop
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
